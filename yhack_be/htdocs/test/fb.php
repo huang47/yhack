@@ -1,5 +1,5 @@
-<?
-require_once __DIR__ . '/main.inc.php';
+<?php
+require_once __DIR__ . '/../main.inc.php';
 ?>
 <!DOCTYPE HTML>
 <html>
@@ -12,7 +12,7 @@ require_once __DIR__ . '/main.inc.php';
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=479655635388342";
+  js.src = "//connect.facebook.net/zh_TW/all.js#xfbml=1&appId=<?=FB_APP_ID?>";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
