@@ -43,6 +43,7 @@ echo `$cmd`;
 // copy dirs
 $cmd = <<<CMD
 sudo cp -Rv $current_path/htdocs/test $tmp/test;
+sudo cp -Rv $current_path/htdocs/lib $tmp/lib;
 CMD;
 if('dev' === $type)
     $cmd = str_replace('cp -Rv', 'ln -s', $cmd);
