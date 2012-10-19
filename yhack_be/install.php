@@ -23,11 +23,14 @@ $tmp = '/tmp/yhack_be_install';
 
 // copy files
 $cmd = <<<CMD
-sudo cp $current_path/htdocs/index.php $tmp;
-sudo cp $current_path/htdocs/.htaccess $tmp;
+sudo cp $current_path/htdocs/.htaccess $tmp\n
 CMD;
+foreach(glob("$current_path/htdocs/*.php") as $script)
+{
+    $cmd .= "sudo cp " . $script . ' ' . $tmp . "\n";
+}
 if($type==='dev')
-    $cmd = preg_replace('/(cp) ([^\s]+)\/([^\s\/]+) ([^\s;]+);?$/m', 'ln -s $2/$3 $4/$3', $cmd);
+    $cmd = preg_replace('/(cp)\s+(\/[^\s\.]+)\/([^\s\/]+)\s+([^\s;]+);?$/m', 'ln -s $2/$3 $4/$3', $cmd);
 echo `$cmd`;
 
 // (hard) copy conf
@@ -38,14 +41,13 @@ CMD;
 echo `$cmd`;
 
 // copy dirs
-/*
 $cmd = <<<CMD
-cp -Rv $current_path/htdocs $tmp/paper;
+sudo cp -Rv $current_path/htdocs/test $tmp/test;
 CMD;
 if('dev' === $type)
     $cmd = str_replace('cp -Rv', 'ln -s', $cmd);
 echo `$cmd`;
-*/
+
 
 /*
 sudo mkdir -p /home/wwwroot/cache/piliapp
