@@ -33,6 +33,7 @@ echo `$cmd`;
 // (hard) copy conf
 $cmd = <<<CMD
 sudo cp $current_path/conf/yhack_be.conf /etc/apache2/sites-enabled/yhack_be
+sudo cp $current_path/bin/wkhtmltoimage-amd64 /usr/bin/wkhtmltoimage
 CMD;
 echo `$cmd`;
 
