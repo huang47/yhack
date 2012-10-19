@@ -1,3 +1,0 @@
-[submodule "yhack_be/htdocs/lib/facebook"]
-	path = yhack_be/htdocs/lib/facebook
-	url = git://github.com/facebook/facebook-php-sdk.git
