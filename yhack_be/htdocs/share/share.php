@@ -19,7 +19,7 @@ $index_file = '/var/www/img/index.txt';
 $file_id = (int)trim(file_get_contents($index_file));
 file_put_contents($index_file, $file_id + 1);
 
-// clean up URL
+// clean up data
 $_POST['url'] = preg_replace('/;_.+/', '', $_POST['url']);
 $_POST['url'] = rawurldecode($_POST['url']);
 $_POST['url'] .= '#yhack-' . $file_id;
@@ -53,7 +53,7 @@ if($user)
     try{
         $ref_obj = $facebook->api('/me/photos', 'POST', array(
                     'source'=>'@' . $img_file,
-                    'message'=>$_POST['title'] . "\r\n" . $_POST['url'],
+                    'message'=>'▋' . $_POST['title'] . ' ▋' . "\r\n" . $_POST['url'],
                     ));
         // echo '<pre>';
         // var_dump($ref_obj);
