@@ -1,22 +1,3 @@
-/**
- * @private
- * @method attachImage
- * @param {Object} pos position object which contains pageX and pageY
- * @param {String} url image url
- **/
-function attachImage(pos, url) {
-    var img = new Image(),
-        elem,
-        parent;
-
-    img.src = url;
-    elem = elementFromPoint(pos.x, pos.y);
-    parent = elem.get('parent');
-
-    if (parent) {
-        parent._node.insertBefore(img, elem._node);
-    }
-}
 
 /**
  * @private
