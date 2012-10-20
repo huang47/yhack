@@ -1,4 +1,3 @@
-<div id="fb-root"></div>
 <?php
 require_once __DIR__ . '/main.inc.php';
 ?>
@@ -16,7 +15,7 @@ require_once __DIR__ . '/main.inc.php';
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected')
         {
-            document.getElementById('fb-login-button').innerHTML = '';
+            document.getElementById('fb-login-button').style.display='none';
         }
     });
 
@@ -31,6 +30,6 @@ require_once __DIR__ . '/main.inc.php';
    }(document));
 </script>
 
-<div id="fb-login-button" class="fb-login-button" data-show-faces="false"
+<div style="visibility:hidden" id="fb-login-button" class="fb-login-button" data-show-faces="false"
   data-width="200" data-max-rows="1" data-scope="<?=FB_APP_SCOPE?>"></div>
 
