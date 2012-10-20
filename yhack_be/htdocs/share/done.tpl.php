@@ -15,5 +15,8 @@
     <img border=0 src="//yhack.piliapp.com/img/<?=$file_id?>.jpg" />
   </div>
   <a href="//www.facebook.com/photo.php?fbid=<?=$ref_obj['id']?>" target="_top">前往Facebook</a> | <a href="#" onclick="window.close();">完成</a>
+  <script>
+  setTimeout(function(){ window.close(); }, 3000);
+  </script>
   </body>
 </html>
