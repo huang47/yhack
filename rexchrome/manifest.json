@@ -3,12 +3,16 @@
   "version": "1.0",
   "manifest_version": 2,
   "description": "The first extension that I made.",
+  "content_scripts": [{
+    "matches": ["http://*/*"],
+    "js": ["content_scripts.js"]
+  }],
   "browser_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"
   },
   "permissions": [
-    "http://api.flickr.com/",
-    "http://*.justfont.com/"
+    "tabs",
+    "http://*/*"
   ]
 }
