@@ -28,15 +28,17 @@ $_POST['url'] .= ',' . $_POST['xy'];
 
 // save image to temp file
 $img_dir_base = '/var/www/img';
-$img_file = $file_id . '.png';
-$img_file = $img_dir_base . '/' . sprintf('%02d', $file_id % 100) . '/' . $img_file;
+$img_file = $img_dir_base . '/' . sprintf('%02d', $file_id % 100) . '/' . $file_id;
 $img_dir = dirname($img_file);
 if(!is_dir($img_dir))
 {
     mkdir($img_dir, 0755, true);
 }
 list(, $png) = explode(',', $_POST['img'], 2);
-file_put_contents($img_file, base64_decode($png));
+file_put_contents($img_file . '.png', base64_decode($png));
+$cmd = sprintf("/usr/bin/convert %s.png[0] %s.jpg", $img_file, $img_file);
+shell_exec($cmd);
+@unlink($img_file . '.png');
 
 // push to facebook
 require_once ROOT_PATH . '/lib/facebook/src/facebook.php';
@@ -52,7 +54,7 @@ if($user)
     // post a photo
     try{
         $ref_obj = $facebook->api('/me/photos', 'POST', array(
-                    'source'=>'@' . $img_file,
+                    'source'=>'@' . $img_file . '.jpg',
                     'message'=>'▋' . $_POST['title'] . ' ▋' . "\r\n" . $_POST['url'],
                     ));
         // echo '<pre>';
@@ -70,10 +72,10 @@ else if(isset($fb_err))
 else 
     $response = '500';
 
-    // delete temp file
-    if($response !== '200')
+// delete temp file
+if($response !== '200')
 {
-    @unlink($tmp_file);
+    @unlink($img_file . '.jpg');
 }
 
 echo $response;
