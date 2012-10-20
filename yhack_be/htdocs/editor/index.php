@@ -22,9 +22,9 @@
       </select>
       <select id="fontsize">
         <option value="24">24</option>
-        <option value="36">36</option>
+        <option value="36" selected="selected">36</option>
         <option value="48">48</option>
-        <option value="60" selected="selected">60</option>
+        <option value="60">60</option>
         <option value="72">72</option>
       </select>
       <input type="text" id="fontcolor" value="ffffff">
@@ -45,6 +45,12 @@
             <img src="stickers/168.png">
             <img src="stickers/188.png">
             <img src="stickers/269.png">
+            <img src="stickers/144.png">
+            <img src="stickers/19.png">
+            <img src="stickers/177.png">
+            <img src="stickers/163.png">
+            <img src="stickers/28.png">
+            <img src="stickers/23.png">
         </div>
         <div class="picture">
             <div class="sticker"></div>
