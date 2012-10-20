@@ -139,6 +139,6 @@ $(document).ready(function() {
   };
   $('#done').click(function(){
     finish();
-    $('#form').submit();
+    //$('#form').submit();
   });
 });

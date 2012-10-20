@@ -28,7 +28,7 @@ display:inline-block;
   background:#000;
 }
 #canvas3{
-  display:none;
+  display:block;
 }
 .ct1, .ct2{
   display:none;

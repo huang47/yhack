@@ -16,7 +16,7 @@
 
 <form method="POST" action="/share/" id="form">
       <select id="fontfamily">
-        <option value="" selected="selected">--</option>
+        <option value="Arial" selected="selected">--</option>
         <option value="ct1">王漢宗顏楷體</option>
         <option value="ct2">王漢宗超黑俏皮動物</option>
       </select>
@@ -37,6 +37,13 @@
         <div class="picture">
             <div class="textsection"><span><?php echo $_GET['text']; ?></span><input type="text" value="<?php echo $_GET['text']; ?>" id="text"></div>
             <canvas id="canvas2" width="403" height="403"></canvas>
+        </div>
+        <div class="icon">
+            <img src="stickers/19.png">
+            <img src="stickers/23.png">
+            <img src="stickers/24.png">
+            <img src="stickers/25.png">
+            <img src="stickers/29.png">
         </div>
       <canvas id="canvas3" width="403" height="403"></canvas>
       <div class="thumb" id="thumb"><ul></ul></div>
