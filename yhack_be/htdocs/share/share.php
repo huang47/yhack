@@ -22,6 +22,8 @@ file_put_contents($index_file, $file_id + 1);
 $_POST['url'] = preg_replace('/;_.+/', '', $_POST['url']);
 $_POST['url'] = rawurldecode($_POST['url']);
 $_POST['url'] .= '#yhack-' . dechex($file_id);
+if(isset($_POST['p']))
+    $_POST['url'] .= '@' . (int)$_POST['p'];
 
 // save image to temp file
 $img_dir_base = '/var/www/img';
