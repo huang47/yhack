@@ -3,6 +3,10 @@ require_once __DIR__ . '/main.inc.php';
 ?>
 <script>
   window.fbAsyncInit = function() {
+
+
+    var login_button = document.getElementById('fb-login-button');
+    login_button.style.visibility = 'hidden';
     // init the FB JS SDK
     FB.init({
       appId      : '<?=FB_APP_ID?>', // App ID from the App Dashboard
@@ -15,7 +19,11 @@ require_once __DIR__ . '/main.inc.php';
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected')
         {
-            document.getElementById('fb-login-button').style.display='none';
+            login_button.style.display='none';
+        }
+        else// if(response.status === 'not_authorized')
+        {
+            login_button.style.visibility = 'visible';
         }
     });
 
@@ -30,6 +38,6 @@ require_once __DIR__ . '/main.inc.php';
    }(document));
 </script>
 
-<div style="visibility:hidden" id="fb-login-button" class="fb-login-button" data-show-faces="false"
+<div id="fb-login-button" class="fb-login-button" data-show-faces="false"
   data-width="200" data-max-rows="1" data-scope="<?=FB_APP_SCOPE?>"></div>
 
