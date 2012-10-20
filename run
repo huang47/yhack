@@ -6,4 +6,4 @@ var gear = require('gear'),
         })
     });
 
-queue.read('text-select.js').jslint().jsminify().write('ts.min.js').run();
+queue.read(['yui-min.js', 'text-select.js']).jslint().jsminify().write('ts.min.js').run();
