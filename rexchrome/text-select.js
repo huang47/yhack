@@ -3,8 +3,10 @@ YUI({
 }).use('io', 'gallery-event-selection', function (Y, NAME) {
     // Fired only on text selection
     var sub = Y.Lang.sub,
+        d = Y.config.doc,
+        w = Y.config.win,
         body = Y.one('body'),
-        API = 'http://yhack.piliapp.com/editor/?title={title}&url={url}&text={text}';
+        API = 'http://yhack.piliapp.com/editor/?title={title}&url={url}&text={text}&pos={pos}';
 
     function getTitle() {
         var h1 = Y.one('h1'),
@@ -25,8 +27,9 @@ YUI({
     body.on('selection', function(e) {
         var data = {
             title: getTitle(),
-            url: Y.config.win.location.href,
-            text: e.selection
+            url: w.location.href,
+            text: e.selection,
+            xy: [e.pageX, e.pageY].join(',')
         };
 
         Y.on('io:complete', function (id, o) {
