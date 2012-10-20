@@ -11,9 +11,7 @@ $(document).ready(function() {
   function draw() {
     context.clearRect(0, 0, canvas.width, canvas.height);
     image.src = 'test.jpg';
-    image.onload = function(e) {
-      context.drawImage(image, 0, 0);
-    };    
+    context.drawImage(image, 0, 0);
     drawText();
   }
 
@@ -44,7 +42,9 @@ $(document).ready(function() {
   //fontsize.onchange = draw;
   //fontcolor.onchange = draw;
   //backgroundcolor.onchange = draw;
-
+  image.onload = function(e) {
+    context.drawImage(image, 0, 0);
+  };
   draw();
 
   $('.textsection').draggable({containment: "parent"});
