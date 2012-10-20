@@ -32,7 +32,7 @@ display:inline-block;
   background:#000;
 }
 #canvas3{
-  display:block;
+  display:none;
 }
 .ct1, .ct2{
   display:none;
