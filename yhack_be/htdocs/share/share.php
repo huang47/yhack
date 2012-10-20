@@ -2,27 +2,42 @@
 
 require_once __DIR__ . '/../main.inc.php';
 
-// login fb first: http://yhack.piliapp.com/test/fb.php
+// login fb first: http://yhack.piliapp.com/share/login.php
 // check share page: http://yhack.piliapp.com/share/?dev=1
 if(isset($_GET['dev']))
 {
     $_POST = array(
             'img'=>trim(file_get_contents(__DIR__ . '/sample.txt')),
-            'title'=>'this is title',
-            'url'=>'http://tw.yahoo.com',
+            'title'=>'this is title' . time(),
+            'url'=>'http://tw.news.yahoo.com/%E6%94%BF%E9%99%A2%E7%99%BC%E8%A8%80%E4%BA%BA%E6%87%B8%E7%BC%BA-%E5%85%A7%E5%AE%9A%E9%84%AD%E9%BA%97%E6%96%87%E6%8E%A5%E4%BB%BB-042255521.html;_ylt=AiEsSXYRdE0bgo98ldUBnVuVBdF_;_ylu=X3oDMTNvdGR2MGIzBG1pdANKdW1ib3Ryb24gRlAgTUQEcGtnA2EzZmM3YTZlLTVjYWUtM2I5Yy05ZjY1LTY1OGQ3ZjkzZGE2OARwb3MDMQRzZWMDbWVnYXRyb24EdmVyA2RkZmUyMDAwLTFhNmUtMTFlMi1iM2ZkLWUxZGZjYTUyYWYyMQ--;_ylg=X3oDMTFucXJnOGdpBGludGwDdHcEbGFuZwN6aC1oYW50LXR3BHBzdGFpZAMEcHN0Y2F0A2hvbWUEcHQDc2VjdGlvbnM-;_ylv=3',
             );
 }
 
+// get id
+$index_file = '/var/www/img/index.txt';
+$file_id = (int)trim(file_get_contents($index_file));
+file_put_contents($index_file, $file_id + 1);
+
+// clean up URL
+$_POST['url'] = preg_replace('/;_.+/', '', $_POST['url']);
+$_POST['url'] = rawurldecode($_POST['url']);
+$_POST['url'] .= '#yhack-' . dechex($file_id);
+if(isset($_POST['p']))
+    $_POST['url'] .= '@' . (int)$_POST['p'];
+
 // save image to temp file
-$tmp_dir = '/tmp/yhack';
-if(!is_dir($tmp_dir))
-    mkdir($tmp_dir, 0755, true);
-    $tmp_file = $tmp_dir . '/' . time() . '_' . rand(1, 100000);
+$img_dir_base = '/var/www/img';
+$img_file = $file_id . '.png';
+$img_file = $img_dir_base . '/' . sprintf('%02d', $file_id % 100) . '/' . $img_file;
+$img_dir = dirname($img_file);
+if(!is_dir($img_dir))
+{
+    mkdir($img_dir, 0755, true);
+}
     list(, $png) = explode(',', $_POST['img'], 2);
-    file_put_contents($tmp_file, base64_decode($png));
+    file_put_contents($img_file, base64_decode($png));
 
     // push to facebook
-
     require_once ROOT_PATH . '/lib/facebook/src/facebook.php';
     $facebook = new Facebook(array(
                 'appId'  => FB_APP_ID,
@@ -35,9 +50,8 @@ if($user)
 {
     // post a photo
     try{
-        $photo = __DIR__ .'/yo.png';
         $ref_obj = $facebook->api('/me/photos', 'POST', array(
-                    'source'=>'@' . $tmp_file,
+                    'source'=>'@' . $img_file,
                     'message'=>$_POST['title'] . "\r\n" . $_POST['url'],
                     ));
         // echo '<pre>';
@@ -48,9 +62,6 @@ if($user)
     }
 }
 
-// delete temp file
-@unlink($tmp_file);
-
 if(isset($ref_obj))
     $response = '200';
 else if(isset($fb_err))
@@ -58,6 +69,12 @@ else if(isset($fb_err))
 else 
     $response = '500';
 
+// delete temp file
+if($response !== '200')
+{
+    @unlink($tmp_file);
+}
 
 echo $response;
+
 

@@ -8,6 +8,7 @@
     "default_popup": "popup.html"
   },
   "permissions": [
-    "http://api.flickr.com/"
+    "http://api.flickr.com/",
+    "http://*.justfont.com/"
   ]
 }
