@@ -5,7 +5,7 @@
   "description": "The first extension that I made.",
   "content_scripts": [{
     "matches": ["http://tw.news.yahoo.com/*"],
-    "js": ["jquery-1.8.2.js", "content_scripts.js", "link-back.js"],
+    "js": ["jquery-1.8.2.js", "content_scripts.js", "link-back-ext.js"],
     "css": ["link-back.css"]
   }],
   "icons": {

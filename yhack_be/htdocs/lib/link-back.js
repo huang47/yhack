@@ -1,16 +1,5 @@
 
-// load jquery
-/*
-function loadScript(e,b){var d=document.getElementsByTagName("head")[0];if(d){var c=document.createElement("script");c.setAttribute("src",e);c.setAttribute("type","text/javascript");var a=function(){if(this.readyState=="complete"||this.readyState=="loaded"){b()}};c.onreadystatechange=a;c.onload=b;d.appendChild(c)}};
-if(typeof jQuery === 'undefined')
-  loadScript("http://ajax.googleapis.com/ajax/libs/jquery/1.8.1/jquery.min.js", function(){
-*/
-
-var match = location.href.match(/#([\d,]+)/);
-
-if(match)
-{
-
+$(document).ready(function(){
     var d = document,
         params = match[1].split(','),
         img_id = params[0],
@@ -37,30 +26,29 @@ if(match)
         elem.parentNode.insertBefore(div, elem);
     }
     
-    /*
-    var run_fb = function(){
+    var run_fb = function() {
         if($("#yhack-img .fb_iframe_widget").size() === 0)
         {
-            console.log('run');
+            // console.log('run');
             // FB.XFBML.parse(document.getElementById('yhack-img'));
-            if(typeof FB !== 'undefined')
+            if(typeof FB === 'undefined')
             {
-                alert('run');
+                setTimeout(function(){run_fb();}, 1500);
+            }
+            else
+            {
+                // alert('run');
                 FB.XFBML.parse();
             }
-            setTimeout(function(){run_fb();}, 1000);
         }
         else
             return;
     };
     run_fb();
-    */
 
 
      // FB.XFBML.parse(document.getElementById('foo'));
     // div.appendChild(img);
 
 
-}
-
-// });
+});
