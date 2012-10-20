@@ -48,7 +48,7 @@ $(document).ready(function() {
   initPicture();
 
   //bind event
-  textsection.click(function(){
+  textsection.dblclick(function(){
     textinput.show();
     textspan.hide();
   });
@@ -102,12 +102,14 @@ $(document).ready(function() {
     ctx3.drawImage(img, 0, (403 - img.height)/2, img.width, img.height);
     ctx3.font = fontsize.val()+'px '+fontfamily.val();
     ctx3.fillStyle = '#'+fontcolor.val();
+    //ctx3.strokeStyle = "black";
+    //ctx3.lineWidth = 1;
     ctx3.fillText(textinput.val(), x, parseInt(y)+parseInt(fontsize.val()));
+    
     document.getElementById('img-dataurl').value =  canvas3.toDataURL();
   };
   $('#done').click(function(){
     finish();
     $('#form').submit();
   });
-
 });

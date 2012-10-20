@@ -23,7 +23,7 @@
         <option value="36">36</option>
         <option value="48" selected="selected">48</option>
       </select>
-      <input type="text" id="fontcolor" value="ff0000">
+      <input type="text" id="fontcolor" value="ffffff">
       <input type="button" value="Done" id="done">
         <input type="hidden" id="title" name="title" value="<?php echo $_GET['title'];?>">
         <input type="hidden" id="img-dataurl" name="img" value="">
