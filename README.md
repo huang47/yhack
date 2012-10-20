@@ -33,7 +33,7 @@ Login url: http://yhack.piliapp.com/share/login.php
   * 200: OK
   * 403: need facebook auth
 * link-back url
-  * http://tw.news.yahoo.com/政院發言人懸缺-內定鄭麗文接任-042255521.html#yhack-21@123,456
-  * ```yhack-{img_id}@{x-position},{y-position}```
-
+  * http://tw.news.yahoo.com/政院發言人懸缺-內定鄭麗文接任-042255521.html#21,123,456
+  * ```{img_id},{x-position},{y-position}```
+  * image url: http://yhack.piliapp.com/img/21.png
 

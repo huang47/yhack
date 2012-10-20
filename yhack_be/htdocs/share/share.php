@@ -22,9 +22,9 @@ file_put_contents($index_file, $file_id + 1);
 // clean up data
 $_POST['url'] = preg_replace('/;_.+/', '', $_POST['url']);
 $_POST['url'] = rawurldecode($_POST['url']);
-$_POST['url'] .= '#yhack-' . $file_id;
+$_POST['url'] .= '#' . $file_id;
 if(isset($_POST['xy']))
-$_POST['url'] .= '@' . $_POST['xy'];
+$_POST['url'] .= ',' . $_POST['xy'];
 
 // save image to temp file
 $img_dir_base = '/var/www/img';
