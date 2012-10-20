@@ -1,6 +1,9 @@
+/*global YUI*/
+/*jslint nomen:true*/
 YUI({
     gallery: 'gallery-2012.10.03-20-02'
 }).use('gallery-event-selection', 'event-hover', function (Y, NAME) {
+    'use strict';
     // Fired only on text selection
     var sub = Y.Lang.sub,
         d = Y.config.doc,
@@ -22,8 +25,6 @@ YUI({
             title = h1.get('innerText');
         } else if (h2) {
             title = h2.get('innerText');
-        } else {
-            title = e.selection;
         }
 
         return title;
@@ -32,7 +33,7 @@ YUI({
     /**
      * @event selection
      **/
-    body.on('selection', function(e) {
+    body.on('selection', function (e) {
         var data = {
             title: getTitle(),
             url: encodeURIComponent(w.location.href),
@@ -47,7 +48,7 @@ YUI({
         });
 
         // should go to canvas editing page
-        window.open(sub(API, data));
+        w.open(sub(API, data));
     });
 
     Y.on('hover', function (e) {

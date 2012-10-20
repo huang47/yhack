@@ -8,7 +8,7 @@ var gear = require('gear'),
         })
     });
 
-queue.read(['yui-min.js', 'ts.js']).jslint().jsminify().write('ts.min.js').run(function () {
+queue.read(['yui-min.js', 'ts.js']).concat().jsminify().write('ts.min.js').run(function () {
     exec('mv ts.min.js ./yhack_be/htdocs/lib/', function (err, stdout, stderr) {
         if (err) {
             console.log(err, 'error');
