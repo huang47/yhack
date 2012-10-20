@@ -7,6 +7,8 @@ $(document).ready(function() {
       fontcolor = $('#fontcolor'),
       backgroundcolor = $('#backgroundcolor');
       image = new Image();
+    var TEXT_X = 10,
+        TEXT_Y = 50;
 
   function draw() {
     context.clearRect(0, 0, canvas.width, canvas.height);
@@ -16,8 +18,7 @@ $(document).ready(function() {
   }
 
   function drawText() {
-    var TEXT_X = 10,
-        TEXT_Y = 50;
+
     context.font = fontsize.val()+'px '+fontfamily.val();
     context.fillStyle = fontcolor.val();
     context.fillText(text.val(), TEXT_X, TEXT_Y);
@@ -47,5 +48,16 @@ $(document).ready(function() {
   };
   draw();
 
-  $('.textsection').draggable({containment: "parent"});
+  $('.textsection').draggable({
+    containment: "parent",
+    stop: function(){
+      var position = $(this).position();
+      TEXT_X = position.left+10;
+      TEXT_Y = position.top+$(this).height()-14;
+      draw();
+    }
+  });
+  $('#done').click(function(){
+    Canvas2Image.saveAsPNG(canvas);
+  });
 });
