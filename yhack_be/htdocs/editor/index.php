@@ -43,7 +43,7 @@
     getPara = function(name) {
         name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
         regexS = "[\\?&]"+ name +"=([^&#]*)";
-        regex = new RegExp( regexS );
+        regex = new RegExp(regexS);
         results = regex.exec(window.location.href);
         if(results == null) {
             canvasSetUp('No text');

@@ -4,7 +4,7 @@
 <meta charset="utf-8" />
 </head>
 <body>
-<h1>index</h1>
+<h1>error:404</h1>
 <h3>離職者聯盟</h3>
 </body>
 </html>
