@@ -16,7 +16,7 @@ require_once __DIR__ . '/main.inc.php';
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected')
         {
-            document.getElementById('fb-login-button').innerHTML = 'logined';
+            document.getElementById('fb-login-button').innerHTML = '';
         }
     });
 
