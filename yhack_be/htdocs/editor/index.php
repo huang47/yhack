@@ -1,10 +1,10 @@
-<canvas id="editor" width="430" height="300" style="background:#000;">
+<canvas id="editor" width="403" height="403" style="background:#000;">
 </canvas>
 <form method="POST" action="/share/">
-    <input type="hidden" id="title" name="title" value="Hello World">
+    <input type="hidden" id="title" name="title" value="<?php echo $_GET['title'];?>">
     <input type="hidden" id="img-dataurl" name="img" value="">
-    <input type="hidden" id="url" name="url" value="http://tw.yahoo.com/">
-    <input type="hidden" id="xy" name="xy" value="<?php echo '0';?>">
+    <input type="hidden" id="url" name="url" value="<?php echo $_GET['url'];?>">
+    <input type="hidden" id="xy" name="xy" value="<?php echo $_GET['xy'];?>">
     <input type="submit" value="post">
 </form>
 <script>
@@ -17,14 +17,24 @@
     canvasSetUp = function(str, pic) {
         img = new Image();
         img.onload = function() {
-            ctx.drawImage(img, 0, 0);  
+            var tmp;
+            if (img.width > img.height) {
+                tmp = (403/img.width) * img.height;
+                img.width = '403';
+                img.height = tmp;
+            } else {
+                tmp = (403/img.height) * img.width;
+                img.height ='403px';
+                img.width = tmp;
+            }
+            ctx.drawImage(img, 0, (403 - img.height)/2, img.width, img.height);  
             ctx.font = '30px Arial';
             ctx.fillStyle = '#FFF'
             ctx.fillText(decodeURIComponent(str), 100, 100);
             ctx.save();
             setTimeout(getDataURL, 100);
         };
-        var r = Math.round((Math.random()*10000)) % tpl.length;
+        var r = Math.round((Math.random()*10001)) % tpl.length;
         img.src = 'img/meme/'+ tpl[r]+'.jpeg';
     };
     getDataURL = function() {
@@ -37,7 +47,6 @@
         results = regex.exec(window.location.href);
         if(results == null) {
             canvasSetUp('No text');
-            return '';
         } else {
             canvasSetUp(results[1]);
         }
