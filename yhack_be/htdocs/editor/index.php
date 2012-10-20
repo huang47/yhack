@@ -45,6 +45,12 @@
             <img src="stickers/168.png">
             <img src="stickers/188.png">
             <img src="stickers/269.png">
+            <img src="stickers/144.png">
+            <img src="stickers/19.png">
+            <img src="stickers/177.png">
+            <img src="stickers/163.png">
+            <img src="stickers/28.png">
+            <img src="stickers/23.png">
         </div>
         <div class="picture">
             <div class="sticker"></div>
