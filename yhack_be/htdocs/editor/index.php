@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="meme.css" />
   </head>
   <body>
+  <?php require_once __DIR__ . '/../login.inc.php'; ?>
     <div class="ct1"><?php echo $_GET['text']; ?></div>
     <div class="ct2"><?php echo $_GET['text']; ?></div>
     <div class="editor">
