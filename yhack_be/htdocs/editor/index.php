@@ -34,11 +34,6 @@
         <input type="hidden" id="url" name="url" value="<?php echo $_GET['url'];?>">
         <input type="hidden" id="xy" name="xy" value="<?php echo $_GET['xy'];?>">
 </form>
-        <div class="picture">
-            <div class="sticker"></div>
-            <div class="textsection"><span><?php echo $_GET['text']; ?></span><input type="text" value="<?php echo $_GET['text']; ?>" id="text"></div>
-            <canvas id="canvas2" width="403" height="403"></canvas>
-        </div>
         <div class="icon">
             <img src="stickers/293.png">
             <img src="stickers/273.png">
@@ -50,6 +45,11 @@
             <img src="stickers/168.png">
             <img src="stickers/188.png">
             <img src="stickers/269.png">
+        </div>
+        <div class="picture">
+            <div class="sticker"></div>
+            <div class="textsection"><span><?php echo $_GET['text']; ?></span><input type="text" value="<?php echo $_GET['text']; ?>" id="text"></div>
+            <canvas id="canvas2" width="403" height="403"></canvas>
         </div>
       <canvas id="canvas3" width="403" height="403"></canvas>
       <div class="thumb" id="thumb"><ul></ul></div>

@@ -157,8 +157,8 @@ $(document).ready(function() {
     if(is_sticker){
       var _img = new Image();
       _img.onload = function() {
-        ctx3.drawImage(_img, sticker_x, sticker_y);
         ctx3.drawImage(img, 0, (403 - img.height)/2, img.width, img.height);
+        ctx3.drawImage(_img, sticker_x, sticker_y);
         ctx3.font = fontsize.val()+'px '+fontfamily.val();
         ctx3.fillStyle = '#'+fontcolor.val();
         ctx3.fillText(textinput.val(), x, parseInt(y)+parseInt(fontsize.val()));
