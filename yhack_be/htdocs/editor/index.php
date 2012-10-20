@@ -22,9 +22,9 @@
       </select>
       <select id="fontsize">
         <option value="24">24</option>
-        <option value="36">36</option>
+        <option value="36" selected="selected">36</option>
         <option value="48">48</option>
-        <option value="60" selected="selected">60</option>
+        <option value="60">60</option>
         <option value="72">72</option>
       </select>
       <input type="text" id="fontcolor" value="ffffff">

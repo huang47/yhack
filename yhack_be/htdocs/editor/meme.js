@@ -144,13 +144,6 @@ $(document).ready(function() {
       is_sticker = true;
       sticker_src = $(this).attr('src');
       sticker.html('<img src="'+sticker_src+'">');
-      /*
-      var _img = new Image();
-      _img.onload = function() {
-        ctx2.drawImage(_img, 0, 0);
-      };
-      _img.src = src;
-      */
   });
 
   var finish = function(){
