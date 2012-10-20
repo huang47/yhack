@@ -14,6 +14,11 @@ if(isset($_GET['dev']))
             );
 }
 
+if(!isset($_POST['title']) || !isset($_POST['img']) || !isset($_POST['url']))
+{
+    die('500');
+}
+
 // get id
 $index_file = '/var/www/img/index.txt';
 $file_id = (int)trim(file_get_contents($index_file));
@@ -24,7 +29,7 @@ $_POST['url'] = preg_replace('/;_.+/', '', $_POST['url']);
 $_POST['url'] = rawurldecode($_POST['url']);
 $_POST['url'] .= '#' . $file_id;
 if(isset($_POST['xy']))
-$_POST['url'] .= ',' . $_POST['xy'];
+    $_POST['url'] .= ',' . $_POST['xy'];
 
 // save image to temp file
 $img_dir_base = '/var/www/img';
@@ -70,7 +75,7 @@ if(isset($ref_obj))
 else if(isset($fb_err))
     $response = '403';
 else 
-    $response = '500';
+    $response = '401';
 
 // delete temp file
 if($response !== '200')
