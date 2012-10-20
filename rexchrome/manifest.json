@@ -4,7 +4,7 @@
   "manifest_version": 2,
   "description": "The first extension that I made.",
   "content_scripts": [{
-    "matches": ["http://*/*"],
+    "matches": ["http://tw.news.yahoo.com/*"],
     "js": ["content_scripts.js", "link-back.js"]
   }],
   "icons": {
