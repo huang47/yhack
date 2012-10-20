@@ -1,7 +1,7 @@
 
 $(document).ready(function(){
     var d = document,
-        params = match[1].split(','),
+        params = location.href.split('#')[1].split(','),
         img_id = params[0],
         x = params[1] || -999,
         y = params[2] || -999,
@@ -14,8 +14,7 @@ $(document).ready(function(){
     console.log(elem);
     div = d.createElement('div');
     div.className  = div.id = "yhack-img";
-    div.innerHTML = '<div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false"></div>';
-    div.innerHTML += '<img src="' + src + '" />';
+    div.innerHTML = '<div class="yhack-img-content"><div class="fb-like" data-send="false" data-layout="button_count" data-width="55" data-show-faces="false"></div>' + '<img src="' + src + '" /></div>';
 
     if(elem === null)
     {
