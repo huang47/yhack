@@ -159,6 +159,7 @@ $(document).ready(function() {
         _logo.onload = function(){
           ctx3.drawImage(_logo, 320, (403 - _logo.height +10));
           document.getElementById('img-dataurl').value =  canvas3.toDataURL();
+          $('#form').submit();
         };
         _logo.src = "img/logo_s.png";
 
@@ -174,12 +175,13 @@ $(document).ready(function() {
       _logo.onload = function(){
         ctx3.drawImage(_logo, 320, (403 - _logo.height +10));
         document.getElementById('img-dataurl').value =  canvas3.toDataURL();
+        $('#form').submit();
       };
       _logo.src = "img/logo_s.png";
     }
   };
   $('#done').click(function(){
     finish();
-    $('#form').submit();
+    //$('#form').submit();
   });
 });
