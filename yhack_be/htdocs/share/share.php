@@ -83,11 +83,15 @@ if($response !== '200')
     @unlink($img_file . '.jpg');
 }
 
-echo $response;
-
-if($response === '500')
+if($response === '200')
 {
-    //var_dump($_POST);    
+    // echo "<pre>";
+    // var_dump($ref_obj);
+    require __DIR__ . '/done.tpl.php';
+}
+else
+{
+    echo $response;    
 }
 
 
