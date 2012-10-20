@@ -48,8 +48,12 @@ $(document).ready(function() {
   initPicture();
 
   //bind event
-  textsection.dblclick(function(){
+  textsection.dblclick(function(e){
     textinput.show();
+    textinput.focus();
+    textinput.focus(function(){
+      $(this).select();
+    });
     textspan.hide();
   });
   textinput.keypress(function(event){
