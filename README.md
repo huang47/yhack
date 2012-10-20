@@ -5,7 +5,7 @@ yhack
 
 PREREQUISITE
 ============
-1. node(0.8.*)
+1. node(0.8.\*)
 2. npm (latest stable)
 
 INSTALL DEPENDENCIES
@@ -23,11 +23,12 @@ URL
 ====
 base url: http://yhack.piliapp.com
 Login url: http://yhack.piliapp.com/share/login.php
-*  GET /editor/?title={h1-title}&url={url}&text={selected-text}
+*  GET /editor/?title={h1-title}&url={url}&text={selected-text}&p={paragraph}
 *  POST /share/
-  * img
+  * img: datauri with base64 encoding
   * title
   * url
+  * p: paragraph
 *  /share/ response
   * 200: OK
   * 403: need facebook auth
