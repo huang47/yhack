@@ -19,3 +19,7 @@ base url: http://yhack.piliapp.com
   * img
   * title
   * url
+*  /share/ response
+  * 200: OK
+  * 403: need facebook auth
+
