@@ -20,12 +20,12 @@ $(document).ready(function() {
   function drawText() {
 
     context.font = fontsize.val()+'px '+fontfamily.val();
-    context.fillStyle = fontcolor.val();
+    context.fillStyle = '#'+fontcolor.val();
     context.fillText(text.val(), TEXT_X, TEXT_Y);
 
     text.css('font-size', fontsize.val()+'px');
     text.css('font-family', fontfamily.val());
-    text.css('color', fontcolor.val());
+    text.css('color', '#'+fontcolor.val());
   }
 
   //event
@@ -35,6 +35,16 @@ $(document).ready(function() {
     }
   });
   fontfamily.bind({
+    change: function(){
+      draw();
+    }
+  });
+  fontsize.bind({
+    change: function(){
+      draw();
+    }
+  });
+  fontcolor.bind({
     change: function(){
       draw();
     }
@@ -59,5 +69,18 @@ $(document).ready(function() {
   });
   $('#done').click(function(){
     Canvas2Image.saveAsPNG(canvas);
+  });
+  $('#fontcolor').ColorPicker({
+    onSubmit: function(hsb, hex, rgb, el) {
+      $(el).val(hex);
+      $(el).ColorPickerHide();
+      draw();
+    },
+      onBeforeShow: function () {
+      $(this).ColorPickerSetColor(this.value);
+    }
+  })
+  .bind('keyup', function(){
+    $(this).ColorPickerSetColor(this.value);
   });
 });
