@@ -14,7 +14,12 @@ $(document).ready(function() {
       img = new Image(),
       r,
       x = 0,
-      y = 0;
+      y = 0,
+      is_sticker = false,
+      sticker_src,
+      sticker_x = 0,
+      sticker_y = 0,
+      sticker = $('.sticker');
 
   var makeList = function(r) { 
       var html = '';
@@ -97,6 +102,14 @@ $(document).ready(function() {
       y = position.top;
     }
   });
+  sticker.draggable({
+    containment: "parent",
+    stop: function(){
+      var position = $(this).position();
+      sticker_x = position.left;
+      sticker_y = position.top;
+    }
+  });
   fontcolor.ColorPicker({
     onSubmit: function(hsb, hex, rgb, el) {
       $(el).val(hex);
@@ -127,7 +140,27 @@ $(document).ready(function() {
     }
   });
 
+  $('.icon img').click(function(){
+      is_sticker = true;
+      sticker_src = $(this).attr('src');
+      sticker.html('<img src="'+sticker_src+'">');
+      /*
+      var _img = new Image();
+      _img.onload = function() {
+        ctx2.drawImage(_img, 0, 0);
+      };
+      _img.src = src;
+      */
+  });
+
   var finish = function(){
+    if(is_sticker){
+      var _img = new Image();
+      _img.onload = function() {
+        ctx3.drawImage(_img, sticker_x, sticker_y);
+      };
+      _img.src = sticker_src;
+    }
     ctx3.drawImage(img, 0, (403 - img.height)/2, img.width, img.height);
     ctx3.font = fontsize.val()+'px '+fontfamily.val();
     ctx3.fillStyle = '#'+fontcolor.val();
@@ -139,6 +172,6 @@ $(document).ready(function() {
   };
   $('#done').click(function(){
     finish();
-    //$('#form').submit();
+    $('#form').submit();
   });
 });
