@@ -1,6 +1,6 @@
 YUI({
     gallery: 'gallery-2012.10.03-20-02'
-}).use('io', 'gallery-event-selection', function(Y) {
+}).use('io', 'gallery-event-selection', function (Y, NAME) {
     // Fired only on text selection
     var sub = Y.Lang.sub,
         body = Y.one('body'),
