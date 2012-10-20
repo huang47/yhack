@@ -43,5 +43,6 @@
     <script src="canvas2image.js"></script>
     <script src="colorpicker/js/colorpicker.js"></script>
     <script src="meme.js"></script>
+  <?php require_once __DIR__ . '/../login.inc.php'; ?>
   </body>
 </html>
