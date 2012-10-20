@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="meme.css" />
   </head>
   <body>
+    <h1><img src="img/logo.png"></h1>
     <div class="ct1"><?php echo $_GET['text']; ?></div>
     <div class="ct2"><?php echo $_GET['text']; ?></div>
     <div class="editor">
@@ -15,6 +16,7 @@
 
 <form method="POST" action="/share/" id="form">
       <select id="fontfamily">
+        <option value="" selected="selected">--</option>
         <option value="ct1">王漢宗顏楷體</option>
         <option value="ct2">王漢宗超黑俏皮動物</option>
       </select>
@@ -26,7 +28,7 @@
         <option value="72">72</option>
       </select>
       <input type="text" id="fontcolor" value="ffffff">
-      <input type="button" value="Done" id="done">
+      <input type="button" value="Post" id="done">
         <input type="hidden" id="title" name="title" value="<?php echo $_GET['title'];?>">
         <input type="hidden" id="img-dataurl" name="img" value="">
         <input type="hidden" id="url" name="url" value="<?php echo $_GET['url'];?>">
@@ -37,6 +39,7 @@
             <canvas id="canvas2" width="403" height="403"></canvas>
         </div>
       <canvas id="canvas3" width="403" height="403"></canvas>
+      <div class="thumb" id="thumb"><ul></ul></div>
     </div>
 <script type="text/javascript">window.jfAsyncInit=function(){ctb.main({'appId':'6afbf2b6ikTS2NUSC5RMKSDCw48prFTp2PECe8UU0WI-BM06T4-2znhFnMr-1KTPStT0JgC3UHWbOZKDVFKviwgV6AHvt97yymsctqMWkqQFhvnD707fxszLs38MqoCeuofcCbHvDtfjGTBrxdKNgdl_w9tQzbyjYUC5Ly38uxnE9Ut8qxE='});};(function(){var jf=document.createElement('script');jf.type='text/javascript';jf.async=true;jf.src='http://ds.justfont.com/core/js/v1.0/6afbf2b6ikTS2NUSC5RMKSDCw48prFTp2PECe8UU0WI-BM06T4-2znhFnMr-1KTPStT0JgC3UHWbOZKDVFKviwgV6AHvt97yymsctqMWkqQFhvnD707fxszLs38MqoCeuofcCbHvDtfjGTBrxdKNgdl_w9tQzbyjYUC5Ly38uxnE9Ut8qxE=.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(jf,s);})();</script>
     <script src="jquery-1.8.2.js"></script>

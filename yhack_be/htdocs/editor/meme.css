@@ -4,6 +4,11 @@
   background: transparent;
 }
 .picture{
+	border:5px solid #cccccc;
+	box-shadow:0 0 10px #000000;
+	margin:10px 0;
+text-align:center;
+display:inline-block;
   width:403px;
   height:403px;
   position:relative;
@@ -27,4 +32,41 @@
 }
 .ct1, .ct2{
   display:none;
+}
+
+body {
+  text-align:center;
+  background:#000 url(img/tiny_grid.png) left top repeat;
+}
+h1 {
+margin:5px 0;
+}
+#done {
+background:#FF0000;
+font-size:24px;
+color:#FFFFFF;
+}
+.editor {
+text-align:center;
+margin:0 auto;
+}
+.thumb li {
+  margin:10px;	
+  width:100px;
+  height:100px;
+  box-shadow:2px 2px 5px #000000;
+  background:#000000 center center no-repeat;
+  background-size:contain;
+  border:5px solid #f0f0f0;
+  border-radius:50px;
+  -webkit-transition:all 0.2s ease;
+  cursor:pointer;
+  display:inline-block;
+  list-style-type:none;
+  opacity:0.7;
+}
+.thumb li:hover {
+  border:5px solid #ffffff;
+  border-radius:10px;
+  opacity:1;
 }

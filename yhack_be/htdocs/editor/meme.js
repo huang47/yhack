@@ -16,22 +16,47 @@ $(document).ready(function() {
       x = 0,
       y = 0;
 
-  var initPicture = function(str, pic) {
-      img.onload = function() {
+  var makeList = function(r) { 
+      var html = '';
+      for(var i=0;i<tpl.length;i++) {
+              html += '<li data-image="'+tpl[i]+'" style="background-image:url(img/meme/'+tpl[i] + '.jpeg);"></li>';
+      }
+      $('#thumb ul').html(html);
+      $('#thumb').bind('click', function(e){
+          console.log(e.target.getAttribute('data-image'));
+          initPicture(e.target.getAttribute('data-image'));
+          e.preventDefault();
+      });
+  };
+  var initPicture = function(pic) {
+      var _img = new Image();
+      _img.onload = function() {
           var tmp;
-          if (img.width > img.height) {
-              tmp = (403/img.width) * img.height;
-              img.width = '403';
-              img.height = tmp;
+          if (_img.width > _img.height) {
+              tmp = (403/_img.width) * _img.height;
+              _img.width = '403';
+              _img.height = tmp;
           } else {
-              tmp = (403/img.height) * img.width;
-              img.height ='403px';
-              img.width = tmp;
+              tmp = (403/_img.height) * _img.width;
+              _img.height ='403px';
+              _img.width = tmp;
           }
-          ctx2.drawImage(img, 0, (403 - img.height)/2, img.width, img.height);
+          if(pic===undefined) {
+          ctx2.drawImage(_img, 0, (403 - _img.height)/2, _img.width, _img.height);
+          } else {
+              ctx2.clearRect(0, 0, 403, 403);
+              ctx2.drawImage(_img, 0, (403 - _img.height)/2, _img.width, _img.height);
+          }
+          img = _img;
       };
+      if(pic===undefined) {
+      var r =0;
       r = Math.round((Math.random()*10001)) % tpl.length;
-      img.src = 'img/meme/'+ tpl[r]+'.jpeg';
+      _img.src = 'img/meme/'+ tpl[r]+'.jpeg';
+      makeList();
+      } else {
+        _img.src = 'img/meme/'+pic+'.jpeg';
+      }
   };
 
   //init color
