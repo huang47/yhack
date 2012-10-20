@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 var gear = require('gear'),
     queue = new gear.Queue({
         registry: new gear.Registry({
