@@ -52,7 +52,7 @@ $(document).ready(function() {
     textinput.show();
     textspan.hide();
   });
-  textinput.keypress(function(e){
+  textinput.keypress(function(event){
     var keycode = (event.keyCode ? event.keyCode : event.which);
     if(keycode == '13'){
       textinput.hide();
