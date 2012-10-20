@@ -1,9 +1,12 @@
-<div id="fb-root"></div>
 <?php
 require_once __DIR__ . '/main.inc.php';
 ?>
 <script>
   window.fbAsyncInit = function() {
+
+
+    var login_button = document.getElementById('fb-login-button');
+    login_button.style.visibility = 'hidden';
     // init the FB JS SDK
     FB.init({
       appId      : '<?=FB_APP_ID?>', // App ID from the App Dashboard
@@ -16,7 +19,11 @@ require_once __DIR__ . '/main.inc.php';
     FB.getLoginStatus(function(response) {
         if (response.status === 'connected')
         {
-            document.getElementById('fb-login-button').innerHTML = '';
+            login_button.style.display='none';
+        }
+        else// if(response.status === 'not_authorized')
+        {
+            login_button.style.visibility = 'visible';
         }
     });
 

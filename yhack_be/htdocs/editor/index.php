@@ -8,7 +8,6 @@
     <link rel="stylesheet" href="meme.css" />
   </head>
   <body>
-  <?php require_once __DIR__ . '/../login.inc.php'; ?>
     <div class="ct1"><?php echo $_GET['text']; ?></div>
     <div class="ct2"><?php echo $_GET['text']; ?></div>
     <div class="editor">
@@ -17,14 +16,16 @@
 <form method="POST" action="/share/" id="form">
       <select id="fontfamily">
         <option value="ct1">王漢宗顏楷體</option>
-        <option value="ct2">王漢宗特明體標準</option>
+        <option value="ct2">王漢宗超黑俏皮動物</option>
       </select>
       <select id="fontsize">
         <option value="24">24</option>
         <option value="36">36</option>
-        <option value="48" selected="selected">48</option>
+        <option value="48">48</option>
+        <option value="60" selected="selected">60</option>
+        <option value="72">72</option>
       </select>
-      <input type="text" id="fontcolor" value="ff0000">
+      <input type="text" id="fontcolor" value="ffffff">
       <input type="button" value="Done" id="done">
         <input type="hidden" id="title" name="title" value="<?php echo $_GET['title'];?>">
         <input type="hidden" id="img-dataurl" name="img" value="">
@@ -44,5 +45,6 @@
     <script src="canvas2image.js"></script>
     <script src="colorpicker/js/colorpicker.js"></script>
     <script src="meme.js"></script>
+  <?php require_once __DIR__ . '/../login.inc.php'; ?>
   </body>
 </html>
