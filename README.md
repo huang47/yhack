@@ -14,6 +14,7 @@ PHASE
 URL
 ====
 base url: http://yhack.piliapp.com
+Login url: http://yhack.piliapp.com/share/login.php
 *  GET /editor/?title={h1-title}&url={url}&text={selected-text}
 *  POST /share/
   * img
@@ -22,4 +23,5 @@ base url: http://yhack.piliapp.com
 *  /share/ response
   * 200: OK
   * 403: need facebook auth
+
 
