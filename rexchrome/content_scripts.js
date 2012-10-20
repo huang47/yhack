@@ -2,7 +2,6 @@ var d = document,
     h = document.head,
     e = d.createElement('script');
 
-    console.log('xd');
-e.src = 'http://yhack.piliapp.com/lib/ts.min.js';
+e.src = 'http://yhack.piliapp.com/lib/ts.min.js?t' + Date.now();
 e.type = 'text/javascript';
 h.appendChild(e);
