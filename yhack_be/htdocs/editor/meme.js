@@ -155,7 +155,13 @@ $(document).ready(function() {
         ctx3.font = fontsize.val()+'px '+fontfamily.val();
         ctx3.fillStyle = '#'+fontcolor.val();
         ctx3.fillText(textinput.val(), x, parseInt(y)+parseInt(fontsize.val()));
-        document.getElementById('img-dataurl').value =  canvas3.toDataURL();
+        var _logo = new Image();
+        _logo.onload = function(){
+          ctx3.drawImage(_logo, 320, (403 - _logo.height +10));
+          document.getElementById('img-dataurl').value =  canvas3.toDataURL();
+        };
+        _logo.src = "img/logo_s.png";
+
       };
       _img.src = sticker_src;
     }
@@ -164,7 +170,12 @@ $(document).ready(function() {
       ctx3.font = fontsize.val()+'px '+fontfamily.val();
       ctx3.fillStyle = '#'+fontcolor.val();
       ctx3.fillText(textinput.val(), x, parseInt(y)+parseInt(fontsize.val()));
-      document.getElementById('img-dataurl').value =  canvas3.toDataURL();
+      var _logo = new Image();
+      _logo.onload = function(){
+        ctx3.drawImage(_logo, 320, (403 - _logo.height +10));
+        document.getElementById('img-dataurl').value =  canvas3.toDataURL();
+      };
+      _logo.src = "img/logo_s.png";
     }
   };
   $('#done').click(function(){
