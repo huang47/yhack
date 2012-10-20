@@ -14,7 +14,7 @@ PHASE
 URL
 ====
 base url: http://yhack.piliapp.com
-*  GET /editor/?title={title}&url={url}&text={text}
+*  GET /editor/?title={h1-title}&url={url}&text={selected-text}
 *  POST /share/
   * img
   * title
