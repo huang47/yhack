@@ -1,0 +1,30 @@
+#text{
+  border:none;
+  width:330px;
+  background: transparent;
+}
+.picture{
+  width:403px;
+  height:403px;
+  position:relative;
+}
+.picture .textsection{
+  cursor:move;
+  position:absolute !important;
+}
+.picture .textsection input{
+  display:none;
+}
+#canvas{
+  background:#000;
+}
+#canvas2,#canvas3{
+  border:1px solid #fff;
+  background:#000;
+}
+#canvas3{
+  display:none;
+}
+.ct1, .ct2{
+  display:none;
+}

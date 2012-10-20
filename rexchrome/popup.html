@@ -5,34 +5,7 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
     <link rel="stylesheet" href="colorpicker/css/colorpicker.css" />
-    <style>
-      body {
-        width: 500px;
-        height: 500px;
-      }
-      .editor{
-        width: 500px;
-        height: 500px;
-      }
-      #text{
-        border:none;
-        width:260px;
-        background: transparent;
-      }
-      .picture{
-        width:500px;
-        height:500px;
-        border:1px solid #333;
-        position:relative;
-      }
-      .picture .textsection{
-        cursor:move;
-        position:absolute !important;
-        padding-left: 10px;
-      }
-      #canvas{
-      }
-    </style>
+    <link rel="stylesheet" href="meme.css" />
   </head>
   <body>
     <div class="ct1"> 雷克斯測試中文</div>
@@ -45,7 +18,7 @@
       <select id="fontsize">
         <option value="24">24</option>
         <option value="36">36</option>
-        <option value="48">48</option>
+        <option value="48" selected="selected">48</option>
       </select>
       <input type="text" id="fontcolor" value="ff0000">
       <select id="backgroundcolor">
@@ -63,6 +36,6 @@
     <script src="base64.js"></script>
     <script src="canvas2image.js"></script>
     <script src="colorpicker/js/colorpicker.js"></script>
-    <script src="popup.js"></script>
+    <script src="meme.js"></script>
   </body>
 </html>

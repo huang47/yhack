@@ -1,56 +1,47 @@
-<canvas id="editor" width="403" height="403" style="background:#000;">
-</canvas>
-<form method="POST" action="/share/">
-    <input type="hidden" id="title" name="title" value="<?php echo $_GET['title'];?>">
-    <input type="hidden" id="img-dataurl" name="img" value="">
-    <input type="hidden" id="url" name="url" value="<?php echo $_GET['url'];?>">
-    <input type="hidden" id="xy" name="xy" value="<?php echo $_GET['xy'];?>">
-    <input type="submit" value="post">
-</form>
-<script>
-    var canvasSetUp, getPara, 
-    editor = document.getElementById('editor'), ctx,
-    tpl = ['chen', 'cute', 'dog', 'gollum', 'shrek', 'soccer', 'steve', 'yenshi'];
-    
-    ctx = editor.getContext('2d');
-   
-    canvasSetUp = function(str, pic) {
-        img = new Image();
-        img.onload = function() {
-            var tmp;
-            if (img.width > img.height) {
-                tmp = (403/img.width) * img.height;
-                img.width = '403';
-                img.height = tmp;
-            } else {
-                tmp = (403/img.height) * img.width;
-                img.height ='403px';
-                img.width = tmp;
-            }
-            ctx.drawImage(img, 0, (403 - img.height)/2, img.width, img.height);  
-            ctx.font = '30px Arial';
-            ctx.fillStyle = '#FFF'
-            ctx.fillText(decodeURIComponent(str), 100, 100);
-            ctx.save();
-            setTimeout(getDataURL, 100);
-        };
-        var r = Math.round((Math.random()*10001)) % tpl.length;
-        img.src = 'img/meme/'+ tpl[r]+'.jpeg';
-    };
-    getDataURL = function() {
-       document.getElementById('img-dataurl').value =  editor.toDataURL();
-    };
-    getPara = function(name) {
-        name = name.replace(/[\[]/,"\\\[").replace(/[\]]/,"\\\]");
-        regexS = "[\\?&]"+ name +"=([^&#]*)";
-        regex = new RegExp(regexS);
-        results = regex.exec(window.location.href);
-        if(results == null) {
-            canvasSetUp('No text');
-        } else {
-            canvasSetUp(results[1]);
-        }
-    };
-    getPara('text');
+<!doctype html>
+<html>
+  <head>
+    <title>Getting Started Extension's Popup</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.0/themes/base/jquery-ui.css" />
+    <link rel="stylesheet" href="colorpicker/css/colorpicker.css" />
+    <link rel="stylesheet" href="meme.css" />
+  </head>
+  <body>
+    <div class="ct1"><?php echo $_GET['text']; ?></div>
+    <div class="ct2"><?php echo $_GET['text']; ?></div>
+    <div class="editor">
 
-</script>
+
+<form method="POST" action="/share/" id="form">
+      <select id="fontfamily">
+        <option value="ct1">王漢宗顏楷體</option>
+        <option value="ct2">王漢宗特明體標準</option>
+      </select>
+      <select id="fontsize">
+        <option value="24">24</option>
+        <option value="36">36</option>
+        <option value="48" selected="selected">48</option>
+      </select>
+      <input type="text" id="fontcolor" value="ff0000">
+      <input type="button" value="Done" id="done">
+        <input type="hidden" id="title" name="title" value="<?php echo $_GET['title'];?>">
+        <input type="hidden" id="img-dataurl" name="img" value="">
+        <input type="hidden" id="url" name="url" value="<?php echo $_GET['url'];?>">
+        <input type="hidden" id="xy" name="xy" value="<?php echo $_GET['xy'];?>">
+</form>
+        <div class="picture">
+            <div class="textsection"><span><?php echo $_GET['text']; ?></span><input type="text" value="<?php echo $_GET['text']; ?>" id="text"></div>
+            <canvas id="canvas2" width="403" height="403"></canvas>
+        </div>
+      <canvas id="canvas3" width="403" height="403"></canvas>
+    </div>
+<script type="text/javascript">window.jfAsyncInit=function(){ctb.main({'appId':'6afbf2b6ikTS2NUSC5RMKSDCw48prFTp2PECe8UU0WI-BM06T4-2znhFnMr-1KTPStT0JgC3UHWbOZKDVFKviwgV6AHvt97yymsctqMWkqQFhvnD707fxszLs38MqoCeuofcCbHvDtfjGTBrxdKNgdl_w9tQzbyjYUC5Ly38uxnE9Ut8qxE='});};(function(){var jf=document.createElement('script');jf.type='text/javascript';jf.async=true;jf.src='http://ds.justfont.com/core/js/v1.0/6afbf2b6ikTS2NUSC5RMKSDCw48prFTp2PECe8UU0WI-BM06T4-2znhFnMr-1KTPStT0JgC3UHWbOZKDVFKviwgV6AHvt97yymsctqMWkqQFhvnD707fxszLs38MqoCeuofcCbHvDtfjGTBrxdKNgdl_w9tQzbyjYUC5Ly38uxnE9Ut8qxE=.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(jf,s);})();</script>
+    <script src="jquery-1.8.2.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script src="base64.js"></script>
+    <script src="canvas2image.js"></script>
+    <script src="colorpicker/js/colorpicker.js"></script>
+    <script src="meme.js"></script>
+  </body>
+</html>
