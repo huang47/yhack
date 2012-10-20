@@ -41,7 +41,7 @@ if(!is_dir($img_dir))
 }
 list(, $png) = explode(',', $_POST['img'], 2);
 file_put_contents($img_file . '.png', base64_decode($png));
-$cmd = sprintf("/usr/bin/convert %s.png[0] %s.jpg", $img_file, $img_file);
+$cmd = sprintf("/usr/bin/convert -quality 95 %s.png[0] %s.jpg", $img_file, $img_file);
 shell_exec($cmd);
 @unlink($img_file . '.png');
 
