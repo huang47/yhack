@@ -13,16 +13,21 @@ display:inline-block;
   height:403px;
   position:relative;
 }
-.picture .textsection{
+.picture .textsection, .picture .textsection2{
   cursor:move;
   position:absolute !important;
+}
+.picture .textsection2{
+  display:none;
+  top:350px;
+  left:0px;
+}
+.picture .textsection input, .picture .textsection2 input{
+  display:none;
 }
 .picture .sticker{
   cursor:move;
   position:absolute !important; 
-}
-.picture .textsection input{
-  display:none;
 }
 #canvas{
   background:#000;
@@ -32,7 +37,7 @@ display:inline-block;
   background:#000;
 }
 #canvas3{
-  display:none;
+  display:block;
 }
 .ct1, .ct2{
   display:none;
