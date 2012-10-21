@@ -16,7 +16,7 @@
   </div>
   <a href="//www.facebook.com/photo.php?fbid=<?=$ref_obj['id']?>" target="_top">前往Facebook</a> | <a href="#" onclick="window.close();">完成</a>
   <script>
-  setTimeout(function(){ window.close(); }, 3000);
+  // setTimeout(function(){ window.close(); }, 3000);
   </script>
   </body>
 </html>
