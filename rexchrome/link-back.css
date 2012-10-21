@@ -1,3 +1,18 @@
 .yhack-img {
 	text-align:center;
 }
+
+
+.yhack-img-content {
+	display:inline-block;	
+	position:relative;
+}
+.yhack-img:hover .fb-like {
+	display:block;	
+}
+.yhack-img .fb-like {
+	display:none;
+	position:absolute;
+	right:0;
+	top:0;
+}
