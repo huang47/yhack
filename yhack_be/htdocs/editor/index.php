@@ -16,7 +16,7 @@
 
 <form method="POST" action="/share/" id="form">
       <select id="fontfamily">
-        <option value="Arial" selected="selected">--</option>
+        <option value="Arial" selected="selected">-選擇字體-</option>
         <option value="ct1">王漢宗顏楷體</option>
         <option value="ct2">王漢宗超黑俏皮動物</option>
       </select>
@@ -32,7 +32,9 @@
         <input type="hidden" id="title" name="title" value="<?php echo $_GET['title'];?>">
         <input type="hidden" id="img-dataurl" name="img" value="">
         <input type="hidden" id="url" name="url" value="<?php echo $_GET['url'];?>">
+        <? if(isset($_GET['xy'])): ?>
         <input type="hidden" id="xy" name="xy" value="<?php echo $_GET['xy'];?>">
+        <? endif; ?>
 </form>
         <div class="icon">
             <img src="stickers/293.png">
