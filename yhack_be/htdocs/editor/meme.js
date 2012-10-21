@@ -7,6 +7,9 @@ $(document).ready(function() {
       textsection = $('.textsection'),
       textinput = $('.textsection input'),
       textspan = $('.textsection span'),
+      textsection2 = $('.textsection2'),
+      textinput2 = $('.textsection2 input'),
+      textspan2 = $('.textsection2 span'),
       fontfamily = $('#fontfamily'),
       fontsize = $('#fontsize'),
       fontcolor = $('#fontcolor'),
@@ -15,6 +18,8 @@ $(document).ready(function() {
       r,
       x = 0,
       y = 0,
+      x2 = 0,
+      y2 = 350,
       is_sticker = false,
       sticker_src,
       sticker_x = 0,
@@ -72,6 +77,13 @@ $(document).ready(function() {
     textinput.css('font-size', fontsize.val()+'px');
     textinput.css('font-family', fontfamily.val());
     textinput.css('color', '#'+fontcolor.val());
+
+    textspan2.css('font-size', fontsize.val()+'px');
+    textspan2.css('font-family', fontfamily.val());
+    textspan2.css('color', '#'+fontcolor.val());
+    textinput2.css('font-size', fontsize.val()+'px');
+    textinput2.css('font-family', fontfamily.val());
+    textinput2.css('color', '#'+fontcolor.val());
   };
   //init
   changeFont();
@@ -102,6 +114,34 @@ $(document).ready(function() {
       y = position.top;
     }
   });
+  //bind event
+  textsection2.dblclick(function(e){
+    textinput2.show();
+    textinput2.focus();
+    textinput2.focus(function(){
+      $(this).select();
+    });
+    textspan2.hide();
+  });
+  textinput2.keypress(function(event){
+    var keycode = (event.keyCode ? event.keyCode : event.which);
+    if(keycode == '13'){
+      textinput2.hide();
+      textspan2.text(textinput2.val());
+      textspan2.show();
+    }
+  });
+  textsection2.draggable({
+    containment: "parent",
+    stop: function(){
+      var position = $(this).position();
+      x2 = position.left;
+      y2 = position.top;
+    }
+  });
+
+
+
   sticker.draggable({
     containment: "parent",
     stop: function(){
@@ -140,6 +180,15 @@ $(document).ready(function() {
     }
   });
 
+  var is_add = false;
+  $('#addtext').click(function(){
+    if(!is_add){
+      textsection2.show();
+      is_add = true;
+    }
+  });
+
+
   $('.icon img').click(function(){
       is_sticker = true;
       sticker_src = $(this).attr('src');
@@ -155,6 +204,9 @@ $(document).ready(function() {
         ctx3.font = fontsize.val()+'px '+fontfamily.val();
         ctx3.fillStyle = '#'+fontcolor.val();
         ctx3.fillText(textinput.val(), x, parseInt(y)+parseInt(fontsize.val()));
+        if(is_add){
+          ctx3.fillText(textinput2.val(), x2, parseInt(y2)+parseInt(fontsize.val()));        
+        }
         var _logo = new Image();
         _logo.onload = function(){
           ctx3.drawImage(_logo, 320, (403 - _logo.height +10));
@@ -171,6 +223,9 @@ $(document).ready(function() {
       ctx3.font = fontsize.val()+'px '+fontfamily.val();
       ctx3.fillStyle = '#'+fontcolor.val();
       ctx3.fillText(textinput.val(), x, parseInt(y)+parseInt(fontsize.val()));
+      if(is_add){
+        ctx3.fillText(textinput2.val(), x2, parseInt(y2)+parseInt(fontsize.val()));        
+      }
       var _logo = new Image();
       _logo.onload = function(){
         ctx3.drawImage(_logo, 320, (403 - _logo.height +10));

@@ -15,6 +15,7 @@
 
 
 <form method="POST" action="/share/" id="form">
+    <input type="button" value="Add Text" id="addtext">
       <select id="fontfamily">
         <option value="Arial" selected="selected">-選擇字體-</option>
         <option value="ct1">王漢宗顏楷體</option>
@@ -57,6 +58,7 @@
         <div class="picture">
             <div class="sticker"></div>
             <div class="textsection"><span><?php echo $_GET['text']; ?></span><input type="text" value="<?php echo $_GET['text']; ?>" id="text"></div>
+            <div class="textsection2"><span><?php echo $_GET['text']; ?></span><input type="text" value="<?php echo $_GET['text']; ?>" id="text"></div>
             <canvas id="canvas2" width="403" height="403"></canvas>
         </div>
       <canvas id="canvas3" width="403" height="403"></canvas>
