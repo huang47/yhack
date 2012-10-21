@@ -1,18 +1,24 @@
 .yhack-img {
-	text-align:center;
+        text-align:center;
 }
 
 
 .yhack-img-content {
-	display:inline-block;	
-	position:relative;
+        display:inline-block;
+        position:relative;
 }
 .yhack-img:hover .fb-like {
-	display:block;	
+        display:block;
 }
 .yhack-img .fb-like {
-	display:none;
-	position:absolute;
-	right:0;
-	top:0;
+        display:none;
+        position:absolute;
+        right:0;
+        top:0;
 }
+
+#yhack-list li { display:inline-block; margin-right:10px; }
+#yhack-list li:last-child { margin-right:0px; }
+
+#yhack-list img { max-width:200px; }
+

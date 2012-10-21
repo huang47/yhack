@@ -16,7 +16,7 @@ $(document).ready(function(){
     div.className  = div.id = "yhack-img";
     div.innerHTML = '<div class="yhack-img-content"><div class="fb-like" data-send="false" data-layout="button_count" data-width="55" data-show-faces="false"></div>' + '<img src="' + src + '" /></div>';
 
-    if(elem === null)
+    if(true || elem === null)
     {
         jQuery(".yom-art-content .bd p:first").before(div);
     }
@@ -24,6 +24,20 @@ $(document).ready(function(){
     {
         elem.parentNode.insertBefore(div, elem);
     }
+
+    var html = '',
+        imgs = [135,119,110];
+    html += '<div class="yom-mod" id="yhack-list">';
+    html += '<div class="hd"><h3>熱門【歪】新聞</h3></div>';
+    html += '<div class="bd"><ul>';
+    html += '<li><a href="http://bit.ly/QHkZAu"><img src="http://yhack.piliapp.com/img/135.jpg" /></a></li>'
+    html += '<li><a href="http://bit.ly/S9eTKQ"><img src="http://yhack.piliapp.com/img/119.jpg" /></a></li>'
+    html += '<li><a href="http://bit.ly/UlgLVr"><img src="http://yhack.piliapp.com/img/142.jpg" /></a></li>'
+    html += '</ul></div>';
+    html += '</html>';
+    console.log(html);
+    $("#mediasocialfollow").before(html);
+
     
     var run_fb = function() {
         if($("#yhack-img .fb_iframe_widget").size() === 0)
