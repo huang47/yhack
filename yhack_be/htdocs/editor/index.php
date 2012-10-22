@@ -70,7 +70,7 @@
     <script src="base64.js"></script>
     <script src="canvas2image.js"></script>
     <script src="colorpicker/js/colorpicker.js"></script>
-    <script src="meme.js?_=<?=time()%600?>"></script>
+    <script src="meme.js?_=<?=(int)(time()/600)?>"></script>
   <?php require_once __DIR__ . '/../login.inc.php'; ?>
   </body>
 </html>
