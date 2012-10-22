@@ -53,9 +53,6 @@ $facebook = new Facebook(array(
             'fileUpload' => true,
             ));
 
-$user = $facebook->getUser();
-if($user)
-{
     // post a photo
     try{
         $ref_obj = $facebook->api('/me/photos', 'POST', array(
@@ -68,7 +65,6 @@ if($user)
     catch(FacebookApiException $e) {
         $fb_err = true;
     }
-}
 
 if(isset($ref_obj))
     $response = '200';
