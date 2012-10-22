@@ -25,6 +25,7 @@ require_once __DIR__ . '/main.inc.php';
         {
             login_button.style.visibility = 'visible';
         }
+        window.FB_LOGIN = response.status;
     });
 
   };

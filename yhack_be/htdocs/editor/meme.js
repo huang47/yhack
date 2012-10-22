@@ -235,8 +235,26 @@ $(document).ready(function() {
       _logo.src = "img/logo_s.png";
     }
   };
-  $('#done').click(function(){
+  $('#done').click(function(e){
+
+    
+    if(window.FB_LOGIN!=='connected')
+    {
+        e.preventDefault();
+        FB.login(function(response) {
+            if (response.authResponse) {
+                finish();
+                // connected
+            } else {
+                // cancelled
+            }
+        });
+
+        return false;
+    }
+    
     finish();
+
     //$('#form').submit();
   });
 });
