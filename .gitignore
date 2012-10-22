@@ -2,4 +2,4 @@
 *.swo
 node_modules
 .DS_Store
-pic_proxy/htdocs/cache/*
+yhack_be/htdocs/secret.inc.php
