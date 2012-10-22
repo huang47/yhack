@@ -32,7 +32,7 @@ $(document).ready(function(){
     html += '<div class="bd"><ul>';
     html += '<li><a href="http://bit.ly/QHkZAu"><img src="http://yhack.piliapp.com/img/135.jpg" /></a></li>'
     html += '<li><a href="http://bit.ly/S9eTKQ"><img src="http://yhack.piliapp.com/img/119.jpg" /></a></li>'
-    html += '<li><a href="http://bit.ly/UlgLVr"><img src="http://yhack.piliapp.com/img/142.jpg" /></a></li>'
+    html += '<li><a href="http://tw.news.yahoo.com/國小高年級數學真的好難--20120928.html#165"><img src="http://yhack.piliapp.com/img/165.jpg" /></a></li>'
     html += '</ul></div>';
     html += '</html>';
     console.log(html);
