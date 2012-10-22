@@ -53,18 +53,18 @@ $facebook = new Facebook(array(
             'fileUpload' => true,
             ));
 
-    // post a photo
-    try{
-        $ref_obj = $facebook->api('/me/photos', 'POST', array(
-                    'source'=>'@' . $img_file . '.jpg',
-                    'message'=>'▋' . $_POST['title'] . ' ▋' . "\r\n" . $_POST['url'],
-                    ));
-        // echo '<pre>';
-        // var_dump($ref_obj);
-    }
-    catch(FacebookApiException $e) {
-        $fb_err = true;
-    }
+// post a photo
+try{
+    $ref_obj = $facebook->api('/me/photos', 'POST', array(
+                'source'=>'@' . $img_file . '.jpg',
+                'message'=>'▋' . $_POST['title'] . ' ▋' . "\r\n" . $_POST['url'],
+                ));
+    // echo '<pre>';
+    // var_dump($ref_obj);
+}
+catch(FacebookApiException $e) {
+    $fb_err = true;
+}
 
 if(isset($ref_obj))
     $response = '200';
@@ -73,8 +73,8 @@ else if(isset($fb_err))
 else 
     $response = '401';
 
-// delete temp file
-if($response !== '200')
+    // delete temp file
+    if($response !== '200')
 {
     @unlink($img_file . '.jpg');
 }
